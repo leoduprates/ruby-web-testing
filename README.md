@@ -1,4 +1,4 @@
-## Sample-Ruby-Cucumber-Test
+## ruby-selenium-cucumber-sample
 
 Este projeto é um exemplo de automação de testes para páginas web utilizando os frameworks Cucumber e Selenium desenvolvidos através da tecnologia ruby.
 
