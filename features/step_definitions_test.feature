@@ -4,7 +4,7 @@ Funcionalidade: Testes Unitarios para as Step Definitionss
 
   @unit_test
   Cenário: Testando as Step Definitions
-    Dado que eu acesse a pagina "file:///home/lduprates/Documentos/workspace/woop-web-test/test/www/index.html"
+    Dado que eu acesse a pagina "/test/www/index.html"
     Quando eu procuro pelo campo "name: searchinput"
     E eu preencho "Test" no campo "name: searchinput"
     Entao o texto "Test" deve existir no campo "name: searchinput"
