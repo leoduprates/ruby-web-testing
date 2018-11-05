@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Example Selenium Web</title><link rel="icon" href="http://reportbuilder.rajatthareja.com/rb.ico">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection"/>
+<link href="https://cdn.rawgit.com/rajatthareja/ReportBuilder/v1.6/css/report.builder.min.css" rel="stylesheet">
+</head><body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script><header class="brown lighten-5">
+<div class="row brown lighten-1">
+<div class="col m6 hide-on-small-only">
+<h5 class="truncate white-text tooltipped" data-tooltip="Example Selenium Web">Example Selenium Web</h5>
+</div><div class="col m6 s12 brown lighten-1">
+<ul class="tabs brown lighten-1 row" style="overflow-x: hidden">
+<li class="tab col s3">
+<a class="brown lighten-3 active blue-text waves-effect waves-light tooltipped" data-tooltip="Results Overview" href="#overview"><i class="material-icons">assessment</i> Overview</a>
+</li>
+<li class="tab col s3">
+<a class="brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Scenarios by Features" href="#features"><i class="material-icons">view_headline</i> Features</a>
+</li>
+<li class="tab col s3">
+<a class="brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Scenarios Summary Table" href="#summary"><i class="material-icons">view_comfy</i> Summary</a>
+</li>
+<li class="tab col s3">
+<a class="brown lighten-3 white-text waves-effect waves-light tooltipped" data-tooltip="Failed Scenarios" href="#errors"><i class="material-icons">bug_report</i> Errors</a>
+</li>
+</ul>
+</div>
+</div>
+</header>
+<div id="g0f0s0" class="modal modal-fixed-footer">
+<div class="modal-content"><div class="chip"><i class="material-icons rotate-45">label</i>@unit_test</div><h5>Testando as Step Definitions (3.500s)</h5>
+features/step_definitions_test.feature:6
+<ul class="collection stepList"><li class="collection-item step passed">
+<b>Dado </b> que eu acesse a pagina "file:///home/lduprates/Documentos/workspace/ruby-selenium-cucumber-sample/test/www/index.html" (0.365s)</li>
+<li class="collection-item step passed">
+<b>Quando </b> eu procuro pelo campo "Search" (0.044s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu preencho "Test" no campo "Search" (0.021s)</li>
+<li class="collection-item step passed">
+<b>Entao </b> o texto "Test" deve existir no campo "name: searchinput" (0.019s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu clico no botão "xpath: //input[@value='send']" (0.054s)</li>
+<li class="collection-item step passed">
+<b>Entao </b> eu vejo o texto "I will be gone in a second" (0.029s)</li>
+<li class="collection-item step passed">
+<b>Quando </b> eu limpo o campo "name: a" (0.012s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu seleciono "name: checkbox" no check box (0.218s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu seleciono a opção número 1 do combobox "name: selectbox" (0.213s)</li>
+<li class="collection-item step passed">
+<b>Quando </b> eu seleciono a opção com "dos" no combobox "name: selectbox2" (0.292s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu envio o formulario "xpath: //input[@value='send']" (0.070s)</li>
+<li class="collection-item step passed">
+<b>Quando </b> eu deleto os cookies (0.027s)</li>
+<li class="collection-item step passed">
+<b>E </b> eu espero por 2 segundos (2.000s)</li>
+<li class="collection-item step passed">
+<b>Entao </b> eu espero que o título da pagina seja "WebdriverIO Testpage" (0.006s)</li>
+<li class="collection-item step passed">
+<b>Entao </b> eu espero que o elemento "name: selectbox2" esteja visível (0.032s)</li>
+<li class="collection-item step passed">
+<b>Entao </b> eu tiro um screenshot (0.098s)</li>
+</ul></div><div class="modal-footer">
+<span class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></span>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {$('#g0f0s0').modal();$('#g0f0s1').modal();});
+</script>
+<main class="brown lighten-5">
+<div class="row"><div id="overview" class="col s12 brown lighten-5">
+<div class="row">
+<div class="col m4 s12">
+<canvas id="featuresDoughnut" width="400" height="400"></canvas>
+<table id="metaDataFeatures" class="bordered">
+<tbody></tbody>
+</table>
+</div><div class="col m4 s12">
+<canvas id="scenariosDoughnut" width="400" height="400"></canvas>
+<table id="metaDataScenarios" class="bordered">
+<tbody></tbody>
+</table>
+</div><div class="col m4 s12">
+<table id="metaData" class="bordered">
+<tbody>
+<tr><th>Total Time</th><td>3.500s</td></tr></tbody>
+</table>
+</div>
+</div></div><div id="features" class="col s12 brown lighten-5 white-text">
+<ul class="featureList collapsible popout" data-collapsible="expandable">
+<li class="feature working">
+<div class="collapsible-header brown lighten-1 waves-effect waves-light">
+<i class="material-icons">featured_play_list</i>
+<b>Funcionalidade</b>&nbsp;Testes Unitarios para as Step Definitionss&nbsp;(3.500s)
+</div><div class="collapsible-body brown lighten-4">
+<ul class="collection scenarioList"><li class="collection-item scenario passed">
+<a class="waves-effect waves-light modal-trigger white-text" href="#g0f0s0">
+<b>Cenário</b> Testando as Step Definitions&nbsp;(3.500s)
+</a>
+</li></ul>
+</div>
+</li>
+</ul></div><div id="summary" class="col s12 brown lighten-5">
+<table id="summaryTable" class="bordered brown lighten-1 white-text" width="100%">
+<thead>
+<tr>
+<th class="hide-on-small-only">Feature</th>
+<th>Scenario</th>
+<th class="hide">Tags</th>
+<th>Status</th>
+<th class="hide-on-small-only">Error</th>
+</tr>
+</thead>
+<tbody><tr class="passed">
+<td class="hide-on-small-only">
+Testes Unitarios para as Step Definitionss
+</td><td class="hoverable">
+<a class="modal-trigger white-text" href="#g0f0s0">Testando as Step Definitions</a>
+</td><td class="hide">
+@unit_test. 
+</td><td class="uppercase">
+passed
+</td><td class="hide-on-small-only"></td></tr>
+</tbody>
+</table></div><div id="errors" class="col s12 brown lighten-5">
+<ul class="errorList collapsible popout" data-collapsible="expandable"></ul></div>
+</div>
+</main><footer class="page-footer brown lighten-4">
+<div class="footer-copyright brown lighten-1">
+<div class="container">
+Happy Reporting!
+<a class="white-text text-lighten-4 right" href="http://reportbuilder.rajatthareja.com">Generated by Report Builder</a>
+</div>
+</div>
+</footer><script type="text/javascript" src="https://cdn.rawgit.com/rajatthareja/ReportBuilder/v1.6/js/report.builder.min.js"></script></body>
+</html>

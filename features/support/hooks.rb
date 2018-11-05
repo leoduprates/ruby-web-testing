@@ -26,7 +26,7 @@ end
 Before do
   @browser = browser
   @wait = Selenium::WebDriver::Wait.new(timeout: 20)
-  @url = url
+  # @url = url
 end
 
 After do |scenario|
@@ -39,7 +39,7 @@ end
 at_exit do
   browser.close
   ReportBuilder.configure do |config|
-    config.input_path = 'reports/cucumber_json'
+    config.input_path = 'reports/cucumber_json/report.json'
     config.report_path = 'reports/report'
     config.report_title = 'Example Selenium Web'
     config.include_images = true

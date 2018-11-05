@@ -1,7 +1,46 @@
+require 'json'
+require 'active_support/all'
+
 class PageHelper
+
   def self.find_element(arg)
     element = finder(arg)
     element
+  end
+
+  def self.extract_element(arg)
+    if arg.include? ':'
+      @how, @what = arg.split(':')
+      @what = @what.strip
+    else arg.instance_of? Object
+      mapping = get_page_object_mapping(arg)
+      @how, @what = mapping[0].split(':')
+      @what = @what.strip
+    end
+  end
+
+  def self.load_page_objects
+    page_objects_files = Dir['features/page_objects/*'].reject { |file| File.directory? file }
+    page_objects = []
+
+    page_objects_files.each do |file|
+      page_objects.push(File.read(file))
+    end
+
+    page_objects
+  end
+
+  def self.get_page_object_mapping(element)
+    page_objects = load_page_objects
+    element_name = element.titleize.camelize(:lower).remove(' ')
+    elements = []
+
+    page_objects.each do |object|
+      object = JSON.parse(object)
+      elements.push(object[element_name])
+    end
+
+    elements
   end
 
   def self.finder(arg)
@@ -28,30 +67,10 @@ class PageHelper
       element = @@page.find_element(tag_name: @what)
     when 'xpath'
       element = @@page.find_element(xpath: @what)
-    when 'variable'
-      mapping = WoopPage.send(@what)
-      element = @@page.find_element(mapping)
     else
-      "No Such finders #{x}"
+      "No Such finders #{arg}"
     end
 
     element
-  end
-
-  def self.extract_element(arg)
-    if arg.include? ':'
-      @how, @what = arg.split(':')
-      @what = @what.strip
-    else arg.instance_of? Object
-      @how = 'variable'
-      @what = arg
-    end
-  end
-
-  def self.get_pages_baseline()
-    driver.find_elements(:tag_name, "a").each { |link|
-      link.click
-      driver.save_screenshot('/reports/baseline/baseline' + Time.now.to_s + '.png')
-    }
   end
 end

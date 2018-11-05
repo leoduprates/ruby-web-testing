@@ -4,9 +4,9 @@ Funcionalidade: Testes Unitarios para as Step Definitionss
 
   @unit_test
   Cenário: Testando as Step Definitions
-    Dado que eu acesse a pagina "/test/www/index.html"
-    Quando eu procuro pelo campo "name: searchinput"
-    E eu preencho "Test" no campo "name: searchinput"
+    Dado que eu acesse a pagina "file:///../test/www/index.html"
+    Quando eu procuro pelo campo "Search"
+    E eu preencho "Test" no campo "Search"
     Entao o texto "Test" deve existir no campo "name: searchinput"
     E eu clico no botão "xpath: //input[@value='send']"
     Entao eu vejo o texto "I will be gone in a second"
