@@ -20,9 +20,3 @@ Funcionalidade: Testes Unitarios para as Step Definitionss
     Entao eu espero que o título da pagina seja "WebdriverIO Testpage"
     Entao eu espero que o elemento "name: selectbox2" esteja visível
     Entao eu tiro um screenshot
-
-
-    @smoke
-    Cenário: Isso é um teste
-      Dado que eu acesse o Woop
-      E eu preencho "Test" no campo "search"
