@@ -1,5 +1,5 @@
 require 'json'
-require 'active_support/all'
+require 'active_support/inflector'
 
 class PageHelper
 
@@ -32,7 +32,7 @@ class PageHelper
 
   def self.get_page_object_mapping(element)
     page_objects = load_page_objects
-    element_name = element.titleize.camelize(:lower).remove(' ')
+    element_name = element.titleize.camelize(:lower).delete(' ')
     elements = []
 
     page_objects.each do |object|

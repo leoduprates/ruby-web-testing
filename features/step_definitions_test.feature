@@ -4,9 +4,10 @@ Funcionalidade: Testes Unitarios para as Step Definitionss
 
   @unit_test
   Cenário: Testando as Step Definitions
-    Dado que eu acesse a pagina "file:///../test/www/index.html"
+    Dado que eu acesse a pagina "file:/home/duprates/Documents/workspace/temp/ruby-selenium-cucumber-sample/test/www/index.html"
     Quando eu procuro pelo campo "Search"
     E eu preencho "Test" no campo "Search"
+    E eu espero por 6 segundos
     Entao o texto "Test" deve existir no campo "name: searchinput"
     E eu clico no botão "xpath: //input[@value='send']"
     Entao eu vejo o texto "I will be gone in a second"
