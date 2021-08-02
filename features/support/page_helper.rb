@@ -2,21 +2,18 @@ require 'json'
 require 'active_support/inflector'
 
 class PageHelper
-
   def self.find_element(arg)
-    element = finder(arg)
-    element
+    finder(arg)
   end
 
   def self.extract_element(arg)
     if arg.include? ':'
       @how, @what = arg.split(':')
-      @what = @what.strip
     else arg.instance_of? Object
       mapping = get_page_object_mapping(arg)
-      @how, @what = mapping[0].split(':')
-      @what = @what.strip
-    end
+      @how, @what = mapping[0].split(':')     end
+
+    @what = @what.strip
   end
 
   def self.load_page_objects

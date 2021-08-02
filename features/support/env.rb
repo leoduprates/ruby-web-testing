@@ -1,3 +1,3 @@
-require "selenium-webdriver"
+require 'selenium-webdriver'
 require 'securerandom'
-require "./features/support/page_helper.rb"
+require './features/support/page_helper'

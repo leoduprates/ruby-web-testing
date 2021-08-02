@@ -1,1 +1,1 @@
-default: --format progress --format json --out=reports/cucumber_json/report.json
+default: --publish-quiet --format pretty --format json --out=reports/json/report.json

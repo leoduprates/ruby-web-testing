@@ -1,12 +1,8 @@
 require 'report_builder'
 
 case ENV['BROWSER']
-when 'ie'
-  browser = Selenium::WebDriver.for :ie
 when 'firefox'
   browser = Selenium::WebDriver.for :firefox
-when 'chrome'
-  browser = Selenium::WebDriver.for :chrome
 when 'opera'
   browser = Selenium::WebDriver.for :opera
 when 'chrome_headless'
@@ -26,7 +22,6 @@ end
 Before do
   @browser = browser
   @wait = Selenium::WebDriver::Wait.new(timeout: 20)
-  # @url = url
 end
 
 After do |scenario|
@@ -39,9 +34,9 @@ end
 at_exit do
   browser.close
   ReportBuilder.configure do |config|
-    config.input_path = 'reports/cucumber_json/report.json'
-    config.report_path = 'reports/report'
-    config.report_title = 'Example Selenium Web'
+    config.input_path = 'reports/json/report.json'
+    config.report_path = 'reports/html/report'
+    config.report_title = 'Ruby Web Testing'
     config.include_images = true
   end
   ReportBuilder.build_report

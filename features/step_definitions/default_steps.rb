@@ -1,80 +1,83 @@
-Dado(/^que eu acesse a pagina "([^\"]*)"$/) do |url|
+Given(/^I am on "([^"]*)"$/) do |url|
   @@page = @browser
   @@page.navigate.to url
 end
 
-Quando(/^eu preencho "([^\"]*)" no campo "([^\"]*)"$/) do |value, mapping|
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |value, mapping|
   element = PageHelper.find_element(mapping)
   element.send_keys value
 end
 
-Entao(/^o texto "([^\"]*)" deve existir no campo "([^\"]*)"$/) do |expected_text, mapping|
+Then(/^I should see the text "([^"]*)" on "([^"]*)"$/) do |expected_text, mapping|
   element = PageHelper.find_element(mapping)
   element.text.include? expected_text
 end
 
-Quando(/^eu procuro pelo campo "([^\"]*)"$/) do |mapping|
+When(/^I should see the element "([^"]*)"$/) do |mapping|
   element = PageHelper.find_element(mapping)
   element.displayed?
 end
 
-Entao(/^eu vejo o texto "([^\"]*)"$/) do |expected_text|
+Then(/^I should see the text "([^"]*)"$/) do |expected_text|
   element = PageHelper.find_element("xpath: //*[contains(., '#{expected_text}')]")
   element.displayed?
 end
 
-Quando(/^eu limpo o campo "([^\"]*)"$/) do |mapping|
+When(/^I clean "([^"]*)"$/) do |mapping|
   element = PageHelper.find_element(mapping)
   element.clear
 end
 
-Quando(/^eu clico no botão "([^\"]*)"$/) do |mapping|
+When(/^I click on "([^"]*)"$/) do |mapping|
   element = PageHelper.find_element(mapping)
   element.click
 end
 
-Quando(/^eu envio o formulario "([^\"]*)"$/) do |mapping|
+When(/^I submit the form "([^"]*)"$/) do |mapping|
   element = PageHelper.find_element(mapping)
   element.submit
 end
 
-Quando(/^eu seleciono "([^\"]*)" no check box$/) do |mapping|
+When(/^I click "([^"]*)" on the checkbox$/) do |mapping|
   element = PageHelper.find_element(mapping)
   element.click
 end
 
-Quando(/^eu seleciono a opção número (.*) do combobox "([^\"]*)"$/) do |index, mapping|
+When(/^I select the option number (.*) in the combobox "([^"]*)"$/) do |index, mapping|
   element = PageHelper.find_element(mapping)
   combobox = Selenium::WebDriver::Support::Select.new(element)
   combobox.select_by(:index, index)
 end
 
-Quando(/^eu seleciono a opção com "([^"]*)?" no combobox "([^\"]*)"$/) do |text, mapping|
+When(/^I select the option "([^"]*)" in the combobox "([^"]*)"$/) do |text, mapping|
   element = PageHelper.find_element(mapping)
   combobox = Selenium::WebDriver::Support::Select.new(element)
   combobox.select_by(:text, text)
 end
 
-Quando(/^eu deleto os cookies$/) do
+When(/^I delete cookies$/) do
   @@page.manage.delete_all_cookies
 end
 
-Quando(/^eu espero por (.*) segundos$/) do |seconds|
+When(/^I wait for (.*) seconds$/) do |seconds|
   sleep(seconds.to_i)
 end
 
-Entao(/^eu espero que o título da pagina seja "([^"]*)?"$/) do |expected_text|
+Then(/^I should see the title page "([^"]*)?"$/) do |expected_text|
   @@page.title.include? expected_text
 end
 
-Entao(/^eu espero que o elemento "([^"]*)" esteja visível$/) do |mapping|
+Then(/^I should see "([^"]*)" visible$/) do |mapping|
   @wait.until do
     from = PageHelper.find_element(mapping)
     from.displayed?
   end
 end
 
-Entao(/^eu tiro um screenshot$/) do
-  random = rand(100000)
-  @@page.save_screenshot('reports/evidences/evidence' + random.to_s + '.png')
+Then(/^I take the screenshot$/) do
+  path = 'reports/screenshots/screenshot_'
+  random = rand(10_000_00)
+  file_format = '.png'
+  path = format('%<path>s%<id>s%<format>s', path: path, id: random.to_s, format: file_format)
+  @@page.save_screenshot(path)
 end
