@@ -1,7 +1,7 @@
 <p>
     <img alt="Ruby" src="https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white"/>
     <img alt="Selenium" src="https://img.shields.io/badge/Selenium-%5cb012.svg?style=for-the-badge&logo=selenium&logoColor=white"/>
-    <img alt="Cucumber" src="https://img.shields.io/badge/Cucumber-qdb6f.svg?style=for-the-badge&logo=Cucumber&logoColor=white"/>
+    <img alt="Cucumber" src="https://img.shields.io/badge/Cucumber-23D96C.svg?style=for-the-badge&logo=Cucumber&logoColor=white"/>
     <a href="https://linkedin.com/in/leonardo-duprates">
         <img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
     </a>
